@@ -1,9 +1,7 @@
 const container = document.querySelector('.container')
-document.getElementById("clear").addEventListener("click", clear);
+document.getElementById("reset").addEventListener("click", reset);
 
 let size = 20
-
-document.getElementById("clear").addEventListener("click", clear);
 
 function draw(size){
     for(i = 0; i < size; i++){
@@ -17,8 +15,6 @@ function draw(size){
             box.classList.add('box')
             box.addEventListener('mouseover', (e) => {
                 let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16)
-                console.log(randomColor)
-                console.log(e.target)
                 e.target.setAttribute('style', `background:${randomColor}`)
             });
             row.append(box)
@@ -26,7 +22,7 @@ function draw(size){
     }
 }
 
-function clear(){
+function reset(){
     let boxes = document.querySelectorAll('.box')
     let rows = document.querySelectorAll('.row')
 
@@ -34,10 +30,10 @@ function clear(){
         boxes[i].classList.remove('filled')
     }
 
-    let newSize = parseInt(prompt("Enter a new size"))
+    let newSize = parseInt(prompt("Enter a new size (max is 200)"))
     
-    while(isNaN(newSize) || newSize > 100 || newSize <= 1){
-        newSize = prompt("Enter a new size")
+    while(isNaN(newSize) || newSize > 200 || newSize <= 1){
+        newSize = prompt("Enter a new size (max is 200)")
     }
 
     size = newSize

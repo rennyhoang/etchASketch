@@ -1,32 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vw;
-    border-color: black;
+    flex:auto;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vw;
 }
 
 .row {
     display: flex;
     flex-direction: row;
     flex: auto;
+    width: 50vw;
 }
 
 .box {
     flex:auto;
     background: floralwhite;
-    border-width: .1px;
-    border-style:solid;
 }
 
-.filled {
-    background:black;
-}
-
-#clear {
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
+#reset {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto; 
     margin-bottom: 1em;
     font-size: large;
 }
