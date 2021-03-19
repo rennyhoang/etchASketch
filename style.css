@@ -22,3 +22,11 @@
 .filled {
     background:black;
 }
+
+#clear {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    font-size: large;
+}
