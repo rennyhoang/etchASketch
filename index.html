@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="clear">CLEAR</button>
+    <div class="container">
+    </div>
+</body>
+<script>
+    const container = document.querySelector('.container')
+    document.getElementById("clear").addEventListener("click", clear);
+    
+    let size = 100
+
+    document.getElementById("clear").addEventListener("click", clear);
+
+    function draw(size){
+        for(j = 0; j < size; j++){
+        
+            let row = document.createElement('div')
+            row.classList.add('row')       
+            container.append(row)
+
+            for(i = 0; i < size; i++){
+                let box = document.createElement('div')
+                box.classList.add('box')
+                box.addEventListener('mouseover', (e) => {e.target.classList.add('filled')});
+                row.append(box)
+            }
+        }
+    }
+
+    function clear(){
+        let boxes = document.querySelectorAll('.box')
+        let rows = document.querySelectorAll('.row')
+
+        for(i = 0; i < boxes.length; i++){
+            boxes[i].classList.remove('filled')
+        }
+
+        let newSize = parseInt(prompt("Enter a new size"))
+        
+        while(isNaN(newSize) || newSize > 100 || newSize <= 1){
+            newSize = prompt("Enter a new size")
+        }
+
+        size = newSize
+
+        for(j = 0; j < rows.length; j++){
+            console.log("remove is working")
+            rows[j].remove()
+        }
+
+        draw(size)
+    }
+
+    draw(5);
+</script>
+</html>
